@@ -10,7 +10,7 @@ def load_urls_from_file(file_path: str):
     try:
 
         with open(file_path) as f:
-            content = f.readline()
+            content = f.readlines()
             return content
     except FileNotFoundError:
         print("The file " + file_path + " couldn't be found")
@@ -20,6 +20,7 @@ def load_urls_from_file(file_path: str):
 def load_page(url: str):
     response = urlopen(url)
     html = response.read().decode('utf-8')
+    return html
 
 
 def scrape_page(page_contents: str):
